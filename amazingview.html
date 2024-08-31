@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazingview</title>
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+  <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* header */
+    .navbar-brand img {
+      max-height: 40px;
+    }
+
+    .navbar-nav {
+      flex: 1;
+      justify-content: center;
+    }
+
+    /* dropdown start */
+
+    .dropdown-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .dropdown-card {
+      display: none;
+      /* Initially hidden */
+      position: absolute;
+      top: 70px;
+      /* Adjust this value based on your header height */
+      left: 85%;
+      transform: translateX(-50%);
+      width: 200px;
+      padding: 15px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      z-index: 1000;
+      /* Ensure dropdown is above other content */
+    }
+
+    .content {
+      margin-top: 150px;
+      padding: 20px;
+    }
+
+    .header0 {
+      padding: 10px 0;
+      background-color: #f8f9fa;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /* Add shadow for better visibility */
+    }
+
+    .search-bar {
+      transition: width 0.3s, padding 0.3s, font-size 0.3s;
+      /* max-width: 70%; Ensure search bar doesn't grow too wide */
+    }
+
+    .list-group-item {
+      border-bottom: none;
+    }
+
+    /* dropdown end */
+    .nav-item:hover {
+      /* text-decoration: underline; */
+      border-bottom: 2px solid rgb(255, 38, 82);
+    }
+
+    #firstrow {
+      margin-top: 300px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .search-bar {
+      transition: width 0.3s ease, padding 0.3s ease, font-size 0.3s ease;
+      max-width: 70%;
+    }
+
+    .content {
+      padding-top: 20px;
+    }
+
+    .dynamic-content {
+      display: inline;
+      font-weight: bold;
+    }
+
+    #search1:hover {
+      background-color: #ccc;
+      border-radius: 25px;
+    }
+
+    #search2:hover {
+      background-color: #ccc;
+      border-radius: 25px;
+    }
+
+    #search3:hover {
+      background-color: #ccc;
+      border-radius: 25px;
+    }
+
+    #search4:hover {
+      background-color: #ccc;
+      border-radius: 25px;
+    }
+
+    /* header end */
+
+    /* header end */
+
+    #lan:hover {
+      text-decoration: underline;
+    }
+
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr {
+      border-color: inherit;
+      border-style: none;
+      border-width: 0;
+    }
+
+    li:hover {
+      border-bottom: 2px solid rgb(255, 38, 82);
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <header class="fixed-top fluid-container bg-white">
+    <div class="container-fluid">
+      <div class="container mt-1">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+          <a class="navbar-brand" href="index.html">
+            <img src="./image/logo.jpg" alt="iTpreneur Logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav d-flex flex-row mx-auto mb-2 mb-lg-0 align-items-center">
+              <li class="nav-item">
+                <a class="nav-link fw-bold" href="#" id="stay">Stays</a>
+              </li>
+              <li class="nav-item ms-4 ms-lg-5">
+                <a class="nav-link fw-bold" href="#" id="exp">Experiences</a>
+              </li>
+            </ul>
+            <div class="d-flex align-items-center">
+              <button class="btn  me-3" onclick="redirectToAirbnb()">Airbnb your home</a></button>
+              <div class="d-flex me-3">
+                <img src="./image/globe.png" alt="" width="15" height="15">
+              </div>
+              <div class="btn rounded-5 border border-grey d-flex align-items-center" id="Menu">
+                <img src="./image/icons8-menu-50.png" alt="" width="10" height="15">
+                <img src="./image/contactlogo.jpg" alt="" width="30" height="30" class="ms-2">
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div id="dropdownCard" class="dropdown-card text-center">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="login.html" class="text-decoration-none text-black">Sign up</a></li>
+        <li class="list-group-item"><a href="login.html" class="text-decoration-none text-black">Login</a></li>
+        <hr>
+        <li class="list-group-item"><a href="https://www.airbnb.co.in/host/homes"
+            class="text-decoration-none text-black">Airbnb your home</a></li>
+        <li class="list-group-item"><a href="https://www.airbnb.co.in/help" class="text-decoration-none text-black">Help
+            Center</a></li>
+      </ul>
+    </div>
+
+    <!-- search bar -->
+    <div class="header">
+      <div id="search" class="container search-bar">
+        <div class="container" style="font-size: 15px;">
+          <form class="d-flex align-items-center shadow p-1 rounded-pill">
+            <!-- Where -->
+            <div class="me-2 flex-grow-1" id="search1">
+              <label for="where" class="form-label mb-0 ps-4" id="whereLabel">Where</label>
+              <input type="text" id="where" class="form-control border-0 shadow-none bg-transparent"
+                placeholder="Search destinations">
+            </div>
+
+            <!-- Check-in -->
+            <div class="me-2" id="search2">
+              <label for="checkin" class="form-label mb-0 ps-3" id="checkinLabel">Check in</label>
+              <input type="date" id="checkin" class="form-control border-0 shadow-none bg-transparent"
+                placeholder="Add Date">
+            </div>
+
+            <!-- Check-out -->
+            <div class="me-2" id="search3">
+              <label for="checkout" class="form-label mb-0 ps-3" id="checkoutLabel">Check out</label>
+              <input type="date" id="checkout" class="form-control border-0 shadow-none bg-transparent"
+                placeholder="Add Date">
+            </div>
+
+            <!-- Who -->
+            <div class="me-2" id="search4">
+              <label for="who" class="form-label mb-0 ps-3" id="whoLabel">Who</label>
+              <input type="text" id="who" class="form-control border-0 shadow-none bg-transparent"
+                placeholder="Add guest">
+            </div>
+
+            <!-- Search Button -->
+            <button type="submit" class="btn btn-danger rounded-circle">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <section class="container-fluid bg-white rounded"
+      style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 15Px;" id="navigation">
+      <ul class="nav" style="font-size: 14px;">
+        <li class="nav-item ms-2">
+          <a href="index.html"><img src="./image/icons.jpg" width="23px" height="22px" style="margin-left: 30%;"></a>
+          <a data-active="main" class="nav-link active" aria-current="page" href="index.html"
+            style="color: black;text-align: start;" id="icons">Icons</a>
+        </li>
+        <li class="nav-item">
+          <a href="amazingview.html"><img src="./image/amazing.jpg" width="23px" height="22px"
+              style="margin-left: 40%;"></a>
+          <a data-active="amazing" class="nav-link active" aria-current="page" href="amazingview.html"
+            style="color: black;text-align: start;" id="Amazing">Amazing views</a>
+        </li>
+        <li class="nav-item">
+          <a href="farms.html"><img src="./image/farms.jpg" width="23px" height="22px" style="margin-left: 31%;"></a>
+          <a data-active="farms" class="nav-link active" aria-current="page" href="farms.html"
+            style="color: black;text-align: start;" id="Farms">Farms</a>
+        </li>
+        <li class="nav-item">
+          <a href="lakefront.html"><img src="./image/lake.jpg" width="23px" height="22px" style="margin-left: 35%;"></a>
+          <a class="nav-link active" aria-current="page" href="lakefront.html" style="color: black;text-align: start;"
+            id="Lakefront">Lakefront</a>
+        </li>
+        <li class="nav-item">
+          <a href="beachview.html"><img src="./image/beach.jpg" width="25px" height="22px"
+              style="margin-left: 35%;"></a>
+          <a class="nav-link active" aria-current="page" href="beachview.html" style="color: black;text-align: start;"
+            id="Beachfront">Beachfront</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&category_tag=Tag%3A8157&search_type=category_change"><img
+              src="./image/container.jpg" width="22px" height="21px" style="margin-left: 35%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&category_tag=Tag%3A8157&search_type=category_change"
+            style="color: black;text-align: start;" id="Container">Container</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A677"><img
+              src="./image/pools.jpg" width="23px" height="22px" style="margin-left: 35%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A677"
+            style="color: black;text-align: start;" id="Amazingpools">Amazing pools</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8225"><img
+              src="./image/OMG.jpg" width="23px" height="22px" style="margin-left: 28%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8225"
+            style="color: black;text-align: start;" id="OMG">OMG!</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A5348"><img
+              src="./image/cabins.jpg" width="23px" height="22px" style="margin-left: 30%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A5348"
+            style="color: black;text-align: start;" id="Cabins">Cabins</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A4104"><img
+              src="./image/country.jpg" width="23px" height="22px" style="margin-left: 30%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A4104"
+            style="color: black;text-align: start;" id="Countryside">Countryside</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8186"><img
+              src="./image/Tiny.jpg" width="23px" height="22px" style="margin-left: 30%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8186"
+            style="color: black;text-align: start;" id="Tiny">Tiny homes</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8188"><img
+              src="./image/Tree.jpg" width="23px" height="22px" style="margin-left: 30%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8188"
+            style="color: black;text-align: start;" id="Tree">Treehouses</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8253"><img
+              src="./image/luxe.jpg" width="23px" height="22px" style="margin-left: 30%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8253"
+            style="color: black;text-align: start;" id="Luxe">Luxe</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8678"><img
+              src="./image/Rooms.jpg" width="23px" height="22px" style="margin-left: 30%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8678"
+            style="color: black;text-align: start;" id="Roman">Rooms</a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A4104"><img
+              src="./image/country.jpg" width="23px" height="22px" style="margin-left: 30%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A4104"
+            style="color: black;text-align: start;" id="Countryside">Countryside</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8186"><img
+              src="./image/Tiny.jpg" width="23px" height="22px" style="margin-left: 30%;"></a>
+          <a class="nav-link active" aria-current="page"
+            href="https://www.airbnb.co.in/?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2024-09-01&monthly_length=3&monthly_end_date=2024-12-01&price_filter_input_type=0&channel=EXPLORE&search_type=category_change&price_filter_num_nights=5&category_tag=Tag%3A8186"
+            style="color: black;text-align: start;" id="Tiny">Tiny homes</a>
+        </li>
+      </ul>
+    </section>
+
+  </header>
+
+
+  <!-- First row start -->
+  <div id="firstrow">
+    <section class="container mt-5">
+      <div class="row">
+        <div id="carouselExampleCaptions1" class="carousel slide col-md-3" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./image/amazing(1).jpeg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(2).jpeg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(3).jpeg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(4).jpeg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions1"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions1"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="fs-6 fw-bold">Theog, India</div>
+          <div style="color: #737373;">Mountain views <br>18-23 Aug <br>
+            <span style="color: black;font-weight: bold;">Rs.8,188 night</span>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(7).jpeg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(8).jpeg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(9).jpeg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(10).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <div class="fs-6 fw-bold">Kotgarh, India</div>
+            <div style="color: #737373;">Mountain and garden views<br>22-27 Aug <br>
+              <span style="color: black;font-weight: bold;">Rs.20,028 night</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div id="carouselExampleControlsNoTouching1" class="carousel slide" data-bs-touch="false"
+            data-bs-interval="false">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching1"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching1"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <div class="fs-6 fw-bold">Mashobra, India</div>
+            <div style="color: #737373;">Mountain views <br>13-18 Aug <br>
+              <span style="color: black;font-weight: bold;">Rs.24,310 night</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div id="carouselExampleDark1" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+              <div class="carousel-item">
+                <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark1"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark1"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <div class="fs-6 fw-bold">Kempty falls, Mussoorie, India</div>
+            <div style="color: #737373;">Mountain and park views<br>13-18 Aug <br>
+              <span style="color: black;font-weight: bold;">Rs.88,738 night</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- first row end -->
+
+  <!-- second row start -->
+  <section class="container mt-5">
+    <div class="row mt-5">
+      <div id="carouselExampleCaptions" class="carousel slide col-md-3" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div class="fs-6 fw-bold">Himachal Pradesh, India</div>
+        <div style="color: #737373;">377 kilometers away<br> 13-18 Aug <br>
+          <span style="color: black;font-weight: bold;">Rs.26,859 night</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="fs-6 fw-bold">Gurugram,India</div>
+          <div style="color: #737373;">27 kilometers away<br> 20-25 Aug <br>
+            <span style="color: black;font-weight: bold;">Rs.3,827 night</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
+          data-bs-interval="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="fs-6 fw-bold">Jibhi,India</div>
+          <div style="color: #737373;">Mountain views<br> 13-18 Aug <br>
+            <span style="color: black;font-weight: bold;">Rs.10,100 night</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="fs-6 fw-bold">Bhitar Wali, India</div>
+          <div style="color: #737373;">Mountain and garden views<br> 26-31 Aug <br>
+            <span style="color: black;font-weight: bold;">Rs.9,028 night</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- second row end -->
+
+  <!-- Third row start -->
+  <section class="container">
+    <div class="row mt-5">
+      <div id="carouselExampleCaptions2" class="carousel slide col-md-3" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions2"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div class="fs-6 fw-bold">Lonavala, India</div>
+        <div style="color: #737373;">69 kilometers away<br>19-24 Aug <br>
+          <span style="color: black;font-weight: bold;">Rs.34,234 night</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="carouselExampleIndicators3" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="fs-6 fw-bold">Udaipur,India</div>
+          <div style="color: #737373;">City views<br>17-22 Aug <br>
+            <span style="color: black;font-weight: bold;">Rs.32,865 night</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="carouselExampleControlsNoTouching4" class="carousel slide" data-bs-touch="false"
+          data-bs-interval="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching4"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching4"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="fs-6 fw-bold">Goa,India</div>
+          <div style="color: #737373;">Beach and ocean views<br>28-Sep - 3 Oct <br>
+            <span style="color: black;font-weight: bold;">Rs.8,852 night</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="carouselExampleDark5" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark5"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark5"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="fs-6 fw-bold">Panchgani,India</div>
+          <div style="color: #737373;">Mountain and garden views<br>25-30 Aug <br>
+            <span style="color: black;font-weight: bold;">Rs.5,700 night</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Third row end -->
+
+  <!-- Fourth row start -->
+  <section class="container md-5">
+    <div class="row mt-5">
+      <div id="carouselExampleCaptions6" class="carousel slide col-md-3" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions6"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions6"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div class="fs-6 fw-bold">Nerul,India</div>
+        <div style="color: #737373;">400 kilometers away<br> 18-23 Aug <br>
+          <span style="color: black;font-weight: bold;">Rs.31,211 night</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="carouselExampleIndicators7" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+            <div class="carousel-item">
+              <img src="./image/amazing(6).jpg" class="d-block rounded-4" alt="..." width="300px" height="300px">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators7"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators7"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <div class="fs-6 fw-bold">Kihim,India</div>
+          <div style="color: #737373;">Garden and pool views<br>1-6 Sep <br>
+            <span style="color: black;font-weight: bold;">Rs.36,486 night</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Fourth row end -->
+
+  <!-- Footer Section Start -->
+
+  <footer style="background-color: #f7f7f7;">
+    <section class="container mt-5">
+      <h1 class="fw-bold mb-5">Inspiration for future getaways</h1>
+      <ul class="nav ">
+        <li class="nav-item text-">
+          <a class="nav-link text-black" aria-current="page" href="#">Popular</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="#">Arts & culture</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black " href="#">Outdoors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black " href="#">Mountains</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="#">Beach</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black " href="#">Unique stays</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black " href="#">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black " href="#">Things to do</a>
+        </li>
+      </ul>
+      <hr>
+    </section><br>
+
+
+    <footer>
+      <section class="container">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/canmore-canada/stays/apartments"
+                class="text-decoration-none text-black">Canmore</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/canmore-canada/stays/apartments" class="text-decoration-none"
+                style="color: #7d7d7d;">Flat
+                rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="" class="text-decoration-none text-black">Benalmadena</a>
+            </div>
+            <div><a href="" class="text-decoration-none" style="color: #7d7d7d;">Holiday rentals</a></div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/marbella-spain/stays/apartments"
+                class="text-decoration-none text-black"> Marbella</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/marbella-spain/stays/apartments" class="text-decoration-none"
+                style="color: #7d7d7d;">Villa rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/mijas-spain/stays/houses" class="text-decoration-none text-black">
+                Mijas</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/mijas-spain/stays/houses" class="text-decoration-none"
+                style="color: #7d7d7d;">Holiday rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/prescott-az/stays/cottages" class="text-decoration-none text-black">
+                Prescott</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/prescott-az/stays/cottages" class="text-decoration-none"
+                style="color: #7d7d7d;">Cottage rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/scottsdale-az/stays/mansions" class="text-decoration-none text-black">
+                Scottsdale</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/scottsdale-az/stays/mansions" class="text-decoration-none"
+                style="color: #7d7d7d;">Mansion rentals</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-sm-2 mt-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/tucson-az/stays/mansions" class="text-decoration-none text-black">
+                Tucson</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/tucson-az/stays/mansions" class="text-decoration-none"
+                style="color: #7d7d7d;">Apartment rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/jasper-ar/stays/cabins" class="text-decoration-none text-black">
+                Jasper</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/jasper-ar/stays/cabins" class="text-decoration-none"
+                style="color: #7d7d7d;">Cabin rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/mountain-view-ar/stays/cabins" class="text-decoration-none text-black">
+                Mountain View</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/mountain-view-ar/stays/cabins" class="text-decoration-none"
+                style="color: #7d7d7d;">Pet-friendly rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/devonport-australia/stays/cottages"
+                class="text-decoration-none text-black"> Devonport</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/devonport-australia/stays/cottages" class="text-decoration-none"
+                style="color: #7d7d7d;">Holidays rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/mallacoota-australia/stays/beach-houses"
+                class="text-decoration-none text-black">Mallacoota</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/mallacoota-australia/stays/beach-houses" class="text-decoration-none"
+                style="color: #7d7d7d;">pet-friendly rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/ibiza-spain/stays" class="text-decoration-none text-black"> Ibiza</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/ibiza-spain/stays" class="text-decoration-none"
+                style="color: #7d7d7d;">Holiday rentals</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/anaheim-ca/stays/apartments" class="text-decoration-none text-black">
+                Anaheim</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/anaheim-ca/stays/apartments" class="text-decoration-none"
+                style="color: #7d7d7d;">Holidays rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/monterey-ca/stays/cottages" class="text-decoration-none text-black">
+                Monterey</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/monterey-ca/stays/cottages" class="text-decoration-none"
+                style="color: #7d7d7d;">Apartment rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/paso-robles-ca/stays/cottages"
+                class="text-decoration-none text-black">Paso Robles</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/paso-robles-ca/stays/cottages" class="text-decoration-none"
+                style="color: #7d7d7d;">Holiday rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/santa-barbara-ca/stays/beach-houses"
+                class="text-decoration-none text-black"> Santa Barbara</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/santa-barbara-ca/stays/beach-houses" class="text-decoration-none"
+                style="color: #7d7d7d;">Apartment rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/sonoma-ca/stays/pools" class="text-decoration-none text-black">
+                Sonoma</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/sonoma-ca/stays/pools" class="text-decoration-none"
+                style="color: #7d7d7d;">Beach rentals</a>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="fw-bold">
+              <a href="https://www.airbnb.co.in/la-serena-chile/stays/beachfront"
+                class="text-decoration-none text-black"> La Serena</a>
+            </div>
+            <div>
+              <a href="https://www.airbnb.co.in/la-serena-chile/stays/beachfront" class="text-decoration-none"
+                style="color: #7d7d7d;">Beach rentals</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <br>
+    <hr>
+
+
+    <section class="container">
+      <table class="table table-none">
+        <thead>
+          <tr>
+            <th class="col">Support</th>
+            <th class="col">Hosting</th>
+            <th class="col">Airbnb</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row"><a href="https://www.airbnb.co.in/help" class="text-decoration-none text-dark">Help
+                Centre</a></td>
+            <td><a href="https://www.airbnb.co.in/host/homes?from_footer=1"
+                class="text-decoration-none text-dark">Airbnb home</a></td>
+            <td><a href="https://news.airbnb.com/" class="text-decoration-none text-dark">Newsroom</a></td>
+          </tr>
+          <tr>
+            <td class="row"><a href="https://www.airbnb.co.in/help/article/3218"
+                class="text-decoration-none text-dark">AirCover</a></td>
+            <td><a href="https://www.airbnb.co.in/aircover-for-hosts" class="text-decoration-none text-dark">AirCover
+                for Hosts</a></td>
+            <td><a href="https://www.airbnb.co.in/release" class="text-decoration-none text-dark">New features</a></td>
+          </tr>
+          <tr>
+            <td class="row"><a href="https://www.airbnb.co.in/against-discrimination"
+                class="text-decoration-none text-dark">Anti-discrimination</a></td>
+            <td><a href="https://www.airbnb.co.in/resources/hosting-homes"
+                class="text-decoration-none text-dark">Hosting resources</a></td>
+            <td><a href="https://careers.airbnb.com/" class="text-decoration-none text-dark">Careers</a></td>
+          </tr>
+          <tr>
+            <td class="row"><a href="https://www.airbnb.co.in/accessibility"
+                class="text-decoration-none text-dark">Disability support</a></td>
+            <td><a href="https://chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/html/site_status_block_page.html"
+                class="text-decoration-none text-dark">Community forum</a></td>
+            <td><a href="https://investors.airbnb.com/home/default.aspx "
+                class="text-decoration-none text-dark">Investors</a></td>
+          </tr>
+          <tr>
+            <td class="row"><a href="https://www.airbnb.co.in/help/article/1320"
+                class="text-decoration-none text-dark">Cancellation options</a></td>
+            <td><a href="https://www.airbnb.co.in/help/article/1380" class="text-decoration-none text-dark">Hosting
+                responsibly</a></td>
+            <td><a href="https://www.airbnb.org/?locale=en-IN" class="text-decoration-none text-dark">Airbnb.org
+                emergency stays</a></td>
+          </tr>
+          <tr>
+            <td class="row"><a href="https://www.airbnb.co.in/help/article/3290"
+                class="text-decoration-none text-dark">Report neighbourhood concern</a></td>
+            <td><a href="https://www.airbnb.co.in/ambassadors/joinaclass" class="text-decoration-none text-dark">Join a
+                free Hosting class</a></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <hr>
+    </section>
+
+
+    <div class="container d-flex gap-3">
+      <div>
+        <p>&copy;2024 Airbnb,Inc.</p>
+
+      </div>
+      <div>
+        <a href="https://www.airbnb.co.in/help/article/2855"
+          style="text-decoration: none;color: black;">&blacksquare;<span> </span>Privacy</a>
+      </div>
+      <div>
+        <a href="https://www.airbnb.co.in/help/article/2908"
+          style="text-decoration: none;color: black;">&blacksquare;<span> </span>Terms</a>
+      </div>
+      <div>
+        <a href="https://www.airbnb.co.in/sitemaps/v2" style="text-decoration: none;color: black;">&blacksquare;<span>
+          </span>Sitemap</a>
+      </div>
+      <div>
+        <a href="https://www.airbnb.co.in/about/company-details"
+          style="text-decoration: none;color: black;">&blacksquare;<span> </span>Company details</a>
+      </div>
+      <div style="margin-left: 40%;" style="float: inline-end;">
+        <a href="" style="text-decoration: none; color: black;" class="fw-bold"><img src="./image/globe.png" alt=""
+            width="14px" height="14px" id="lan"> English (IN)</a>
+        <a href="" style="text-decoration: none; color: black;" class="fw-bold"><img src="./image/rupee.png" alt=""
+            width="15px" height="15px"><span> </span>INR</a>
+        <a href=""><img src="./image/facebook.png" alt="" width="18px" height="18px"></a>
+        <a href=""><img src="./image/instagram.png" alt="" width="18px" height="18px"></a>
+        <a href=""><img src="./image/twitter.png" alt="" width="18px" height="18px"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    window.onscroll = function () {
+      let header = document.querySelector('.header');
+      let searchBar = document.querySelector('.search-bar');
+      let whereLabel = document.getElementById('whereLabel');
+      let checkinLabel = document.getElementById('checkinLabel');
+      let checkoutLabel = document.getElementById('checkoutLabel');
+      let whoLabel = document.getElementById('whoLabel');
+
+      if (window.scrollY > 50) {
+        header.style.padding = "5px 0";
+        searchBar.style.width = "50%";
+        searchBar.style.padding = "5px";
+        searchBar.style.fontSize = "12px";
+        whereLabel.textContent = "Anywhere";
+        checkinLabel.textContent = "Anyweek";
+        checkoutLabel.textContent = "Anyweek";
+        whoLabel.textContent = "Anyguest";
+        document.getElementById('where').placeholder = "";
+        document.getElementById('checkin').placeholder = "";
+        document.getElementById('checkout').placeholder = "";
+        document.getElementById('who').placeholder = "";
+      } else {
+        header.style.padding = "10px 0";
+        searchBar.style.width = "70%";
+        searchBar.style.padding = "5px";
+        searchBar.style.fontSize = "14px";
+        whereLabel.textContent = "Where";
+        checkinLabel.textContent = "Check in";
+        checkoutLabel.textContent = "Check out";
+        whoLabel.textContent = "Who";
+        document.getElementById('where').placeholder = "Search destinations";
+        document.getElementById('checkin').placeholder = "Add dates";
+        document.getElementById('checkout').placeholder = "Add dates";
+        document.getElementById('who').placeholder = "Add guests";
+      }
+    };
+
+    document.getElementById("Menu").onclick = function () {
+      let dropdownCard = document.getElementById("dropdownCard");
+      if (dropdownCard.style.display === "none" || dropdownCard.style.display === "") {
+        dropdownCard.style.display = "block";
+      } else {
+        dropdownCard.style.display = "none";
+      }
+    };
+
+    function redirectToAirbnb() {
+      window.location.href = 'https://www.airbnb.co.in/host/homes';
+    }
+
+  </script>
+</body>
+
+</html>
